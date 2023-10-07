@@ -1,0 +1,58 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "Romario",
+      "email": "andre@mail.com",
+      "telefones": [
+        {
+          "numero": "123456789",
+          "ddd": "11"
+        },
+        {
+          "numero": "987654321",
+          "ddd": "47"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "maria",
+      "email": "maria1@mail.com",
+      "telefones": [
+        {
+          "numero": "988561289",
+          "ddd": "16"
+        },
+        {
+          "numero": "990432184",
+          "ddd": "13"
+        }
+      ]
+    },
+    {
+      "nome": "Maria",
+      "email": "asdfasd@gmail.com",
+      "telefone": 8187876876,
+      "id": 3
+    },
+    {
+      "nome": "Jose",
+      "email": "",
+      "telefone": "8198534627",
+      "id": 4
+    },
+    {
+      "id": 3456789,
+      "nome": "",
+      "email": "",
+      "telefone": 98765765465
+    },
+    {
+      "id": 13,
+      "nome": "Armando",
+      "email": "arm@gmail.com",
+      "telefone": 8173459020
+    }
+  ]
+}
