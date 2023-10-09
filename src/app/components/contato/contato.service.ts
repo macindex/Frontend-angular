@@ -18,7 +18,7 @@ export class ContatoService {
       duration: 3000,
       horizontalPosition: "right",
       verticalPosition: "top",
-      panelClass: isError ? ["msg-error"] : ["msg-success"],
+      panelClass: ['msg-success']
     });
   }
   create(contato: Contato): Observable<Contato> {

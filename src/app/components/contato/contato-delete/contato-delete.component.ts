@@ -9,7 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./contato-delete.component.scss']
 })
 export class ContatoDeleteComponent implements OnInit {
-  contato!: Contato 
+  contato: Contato = {
+    id: 0,
+    nome: '',
+    email: '',
+    telefone: 0
+  } 
 
   constructor(
     private contatoService: ContatoService,
@@ -19,15 +24,23 @@ export class ContatoDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.contatoService.readById(0).subscribe((contato) => {
-      this.contato = contato;
-    });
+    if (id) {
+      this.contatoService.readById(+id).subscribe((contato) => {
+        this.contato = contato;
+      });
+    }
+  }
+  
+  confirmDelete(): void {
+    if (confirm('Tem certeza de que deseja excluir este contato?')) {
+      this.deleteContato();
+    }
   }
 
   deleteContato(): void {
     this.contatoService.delete(this.contato.id).subscribe(() => {
-      this.contatoService.showMessage("Contato excluido com sucesso!");
-      this.router.navigate(["/contatos"]);
+      this.contatoService.showMessage('Contato excluído com sucesso!');
+      this.router.navigate(['/contatos']);
     });
   }
 

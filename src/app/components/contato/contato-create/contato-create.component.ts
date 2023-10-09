@@ -11,10 +11,10 @@ import { Contato } from '../contato.model';
 export class ContatoCreateComponent implements OnInit {
   
   contato: Contato = {
-    id: 98,
-    nome: 'Armando',
-    email: 'arm@gmail.com',
-    telefone: 8173459020
+    id: 0,
+    nome: '',
+    email: '',
+    telefone: 0
   }
 
   constructor(private contatoService: ContatoService, private router: Router) {}

@@ -11,27 +11,34 @@ import { Contato } from '../contato.model';
 export class ContatoUpdateComponent implements OnInit  {
 
   contato: Contato = {
-    id: 98,
-    nome: 'Armando',
-    email: 'arm@gmail.com',
-    telefone: 8173459020
+    id: 0,
+    nome: '',
+    email: '',
+    telefone: 0
   }
 
   constructor(private contatoService: ContatoService, private router: Router, private route: ActivatedRoute ){}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get("id");
-    this.contatoService.readById(0).subscribe((contato) => {
-      this.contato = contato;
-    });
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.contatoService.readById(+id).subscribe((contato) => {
+        this.contato = contato;
+      });
+    }
   }
+  // const idParam  = this.route.snapshot.paramMap.get("id")
+  //   if (typeof idParam  === 'string') {
+  //     const id = +idParam ;
+
 
   updateContato(): void {
     this.contatoService.update(this.contato).subscribe(() => {
-      this.contatoService.showMessage("Contato atualizado com sucesso!");
-      this.router.navigate(["/contatos"]);
+      this.contatoService.showMessage('Contato atualizado com sucesso!');
+      this.router.navigate(['/contatos']);
     });
   }
+
   cancel(): void{
     this.router.navigate(["/contatos"]);
   }
